@@ -32,7 +32,9 @@ const anchorFiltros    = document.querySelectorAll('.filtro');
         
 }
     
-//Eventos
+//Eventos de los componentes html
+
+//Con este evento le decimos que al dar enter en la caja de texto crea un nuevo elemento en el arreglo y a la vez el html y reiniciamos la caja de texto
 txtInput.addEventListener('keyup', (event) => {
         if(event.keyCode === 13  && txtInput.value.length > 0){
             const nuevoTodo = new Todo(txtInput.value); 
@@ -42,7 +44,7 @@ txtInput.addEventListener('keyup', (event) => {
         }
 });
 
-
+//Con este evento determinado que elemento damos click y marcamos como completado cuando damos en el input y borramos cuando damos en el boton de la X
 divTodoList.addEventListener('click', (event) => {
     const nombreElemento = event.target.localName; //input label, button
     const todoElemento = event.target.parentElement.parentElement;
@@ -58,7 +60,7 @@ divTodoList.addEventListener('click', (event) => {
     
 });    
 
-
+//Con este evento borramos todos los elementos del arreglo que tengan la clase completado
 btnBorrar.addEventListener('click', () => {
     todoList.eliminarTodosCompletados();
     
@@ -71,6 +73,7 @@ btnBorrar.addEventListener('click', () => {
     }
 });
 
+//Evento para filtrar segun el contenido del boton 
 ulFiltros.addEventListener('click', (event) => {
     
     const filtro = event.target.text;

@@ -1,5 +1,6 @@
 export class Todo {
 
+    //metodo estatico para instanciar la clase todo y poder instanciar nuevamente todo el string que nos da el localstorage y convertirlo en objetos para manteners sus propiedades
     static fromsJson({id,tarea,completado,creado}){
 
         const tempTodo = new Todo(tarea);
@@ -12,6 +13,7 @@ export class Todo {
         return tempTodo;
     }
 
+//definimos como va a lucir un todo
     constructor(tarea){
 
         this.tarea      = tarea;
@@ -20,6 +22,7 @@ export class Todo {
         this.creado     = new Date();
     };
 
+//metodo de un todo
     imprimir(){
         console.log(`${this.tarea} ${this.id}`)
     }
